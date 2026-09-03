@@ -253,7 +253,6 @@
     <button class="nav-btn" id="navNews" onclick="switchTab('news', this)">BSニュース</button>
   </nav>
 
-  <!-- 0. HOME -->
   <div id="home" class="content-section active">
     <div class="hero-banner">
       <div class="hero-tag">PRODUCED BY JAPANESE NBA PLAYER</div>
@@ -272,10 +271,9 @@
 
     <h3 style="font-size: 0.8rem; margin-bottom: 8px; color: var(--gold-accent);" id="clipHeader">■ OFFICIAL HIGHLIGHT CLIP</h3>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/ia_UJDMtBZM" title="BLACK NINJA Highlight" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/???" title="BLACK NINJA Highlight" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <!-- 修正：ヘッダー「サミット特設コーナー」を追加 ＆ ARENA MAP配置 -->
     <h3 style="font-size: 0.8rem; margin-bottom: 8px; color: var(--gold-accent);" id="gridSectionHeader">■ サミット特設コーナー</h3>
     <div class="menu-grid">
       <div class="menu-card" onclick="switchTab('catalog', document.querySelectorAll('.nav-btn')[1])">
@@ -299,7 +297,6 @@
         </div>
         <div class="menu-desc" id="m3Desc">MVP・全5部門の投票</div>
       </div>
-      <!-- 修正：卒業生マガジン ➔ ARENA MAP (タップでモーダル表示) -->
       <div class="menu-card" onclick="openArenaMapModal()">
         <div>
           <div class="menu-icon">🗺️</div>
@@ -319,7 +316,6 @@
       </div>
     </div>
 
-    <!-- 修正：BSニュース・卒業生マガジンの並び ＆ 最下部に公式ストア -->
     <h3 style="font-size: 0.8rem; margin-bottom: 8px; color: var(--gold-accent);" id="infoSectionHeader">■ NEWS & MAGAZINE</h3>
     <div class="menu-grid">
       <div class="menu-card" onclick="switchTab('news', document.querySelectorAll('.nav-btn')[5])">
@@ -351,7 +347,6 @@
     </div>
   </div>
 
-  <!-- 1. 選手カタログ -->
   <div id="catalog" class="content-section">
     <div class="team-tabs">
       <button class="team-btn black active" onclick="switchTeam('BLACK')">TEAM BLACK (8)</button>
@@ -360,7 +355,6 @@
     <div class="player-grid" id="playerGrid"></div>
   </div>
 
-  <!-- 2. The GAME (修正：MAPを削除し、スコアとBOXスコアのみに集約) -->
   <div id="summit" class="content-section">
     <div class="scoreboard">
       <div>
@@ -404,7 +398,6 @@
     </div>
   </div>
 
-  <!-- 3. 観客投票 -->
   <div id="vote" class="content-section">
     <h3 style="font-size: 0.85rem; margin-bottom: 10px; color: var(--red-primary);" id="voteHeader">【観客スカウト投票 (全5部門)】</h3>
     <div class="vote-box">
@@ -434,7 +427,6 @@
     </div>
   </div>
 
-  <!-- 4. 卒業生リポート -->
   <div id="alumni" class="content-section">
     <div class="news-card" onclick="openArticleModal('alumni1')">
       <div class="news-date">渡米リポート #12</div>
@@ -448,7 +440,6 @@
     </div>
   </div>
 
-  <!-- 5. BSニュース -->
   <div id="news" class="content-section">
     <div class="news-card" onclick="window.open('https://post.tv-asahi.co.jp/post-818557/', '_blank')">
       <div class="external-badge">外部サイト ↗</div>
@@ -470,7 +461,6 @@
   </div>
 </div>
 
-<!-- 1. 選手詳細モーダル -->
 <div class="modal-overlay" id="playerModal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('playerModal')">✕</button>
@@ -524,7 +514,6 @@
   </div>
 </div>
 
-<!-- 追加：ARENA MAP専用モーダル -->
 <div class="modal-overlay" id="mapModal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('mapModal')">✕</button>
@@ -545,14 +534,12 @@
   </div>
 </div>
 
-<!-- 2. 全画面推しカラー発光（ペンライト）オーバーレイ -->
 <div id="glowOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:9999; flex-direction:column; justify-content:center; align-items:center; cursor:pointer; text-align:center; padding:20px;">
   <div id="glowNum" style="font-size:3.2rem; font-weight:900; color:#000; text-shadow:0 0 12px rgba(255,255,255,0.9); line-height:1.1;"></div>
   <div id="glowName" style="font-size:2.2rem; font-weight:900; color:#000; margin-top:12px; text-shadow:0 0 8px rgba(255,255,255,0.7);"></div>
   <div style="font-size:0.75rem; color:#000; background:rgba(255,255,255,0.75); padding:6px 16px; border-radius:20px; margin-top:35px; font-weight:900; letter-spacing:1px;">TAP TO CLOSE (タップで戻る)</div>
 </div>
 
-<!-- 3. 記事・ニュース用詳細モーダル -->
 <div class="modal-overlay" id="articleModal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('articleModal')">✕</button>
@@ -562,7 +549,6 @@
   </div>
 </div>
 
-<!-- 4. 投票選択用モーダル -->
 <div class="modal-overlay" id="voteModal">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal('voteModal')">✕</button>
@@ -595,26 +581,75 @@
     '#FF4081', '#64DD17', '#E040FB', '#FFAB00'
   ];
 
+  /* 徹底的に熱く・エモく修正した16名のストーリー＆評価データ */
   const players = [
     // TEAM BLACK
-    { id: 1, team: 'BLACK', num: '#1', name: '山田 太郎', nameEn: 'Taro Yamada', pos: 'PG / 188cm', tag: 'コート上の指揮官', tagEn: 'Court Commander', catchJa: '「超人的視野と冷静沈着なIQで支配するNo.1ガード」', catchEn: '“A elite floor general with high-level IQ.”', birth: '2007.04.12 / 日本', h: '188cm / 81kg', reach: '242cm / 196cm', jump: '82cm', sprint: '3.18秒', lane: '10.5秒', recJa: '「彼はゲームの流れを読み切る本物の将です。」', recEn: '“Taro is a true floor general.”', coachJa: '井上 雄介 監督', coachEn: 'Head Coach Yusuke Inoue', schoolJa: '（開星国際高校）', schoolEn: '(Kaisei Kokusai)', alumniEvalJa: '「太郎は頼れる後輩です。」', alumniEvalEn: '“Taro is dependable.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '24', p2: '5/7', p3: '2/4', ft: '2/2', reb: '4', ast: '8', to: '2', stl: '3', blk: '0', eff: '+22' },
-    { id: 2, team: 'BLACK', num: '#3', name: '佐藤 健', nameEn: 'Ken Sato', pos: 'SG / 192cm', tag: 'ディープシューター', tagEn: 'Deep Shooter', catchJa: '「深い位置からのリリースでゲームを一変させる純粋スナイパー」', catchEn: '“A lethal sharpshooter with NBA-range.”', birth: '2007.08.22 / 日本', h: '192cm / 85kg', reach: '248cm / 201cm', jump: '78cm', sprint: '3.30秒', lane: '11.0秒', recJa: '「NBAディスタンスからでも迷いなく打ち抜きます。」', recEn: '“Mechanically flawless jumper.”', coachJa: '佐藤 誠二 監督', coachEn: 'Head Coach Seiji Sato', schoolJa: '（東仙台学院高校）', schoolEn: '(Higashi Sendai)', alumniEvalJa: '「勝負所で信頼できるシューターです。」', alumniEvalEn: '“Reliable in crunch time.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '26', p2: '4/8', p3: '4/7', ft: '2/2', reb: '3', ast: '2', to: '1', stl: '1', blk: '0', eff: '+20' },
-    { id: 3, team: 'BLACK', num: '#5', name: '高橋 翼', nameEn: 'Tsubasa Takahashi', pos: 'SF / 196cm', tag: '脅威のウイングスパン', tagEn: 'Threat Wingspan', catchJa: '「208cmのウイングスパンを持つ規格外オールラウンダー」', catchEn: '“Freakish length and athleticism.”', birth: '2006.11.05 / 日本・米', h: '196cm / 90kg', reach: '256cm / 208cm', jump: '88cm', sprint: '3.20秒', lane: '10.8秒', recJa: '「ポテンシャルは今回のSUMMITでもナンバーワン。」', recEn: '“Boundless upside.”', coachJa: 'ジェームズ・ハリス 監督', coachEn: 'Head Coach James Harris', schoolJa: '（セント・ハイスクール）', schoolEn: '(St. High School)', alumniEvalJa: '「高校生離れしたスケール感。」', alumniEvalEn: '“Unreal size and scale.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '20', p2: '3/6', p3: '1/3', ft: '1/2', reb: '7', ast: '3', to: '2', stl: '2', blk: '2', eff: '+15' },
-    { id: 4, team: 'BLACK', num: '#7', name: '伊藤 蓮', nameEn: 'Ren Ito', pos: 'PF / 202cm', tag: 'インサイドの要', tagEn: 'Paint Anchor', catchJa: '「ペイントエリアを完全掌握するリバウンダー」', catchEn: '“A relentless warrior in the paint.”', birth: '2007.01.15 / 日本', h: '202cm / 98kg', reach: '262cm / 212cm', jump: '80cm', sprint: '3.40秒', lane: '11.2秒', recJa: '「肉弾戦を愛する強いフィジカルの持ち主。」', recEn: '“Fights for every rebound.”', coachJa: '川崎 慶太 監督', coachEn: 'Head Coach Keita Kawasaki', schoolJa: '（福岡第一総合高校）', schoolEn: '(Fukuoka Daiichi)', alumniEvalJa: '「ルーズボールで体を張れる男。」', alumniEvalEn: '“Sacrifices his body on the boards.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '22', p2: '6/9', p3: '0/0', ft: '0/1', reb: '9', ast: '1', to: '1', stl: '0', blk: '1', eff: '+16' },
-    { id: 5, team: 'BLACK', num: '#9', name: '渡辺 陸', nameEn: 'Riku Watanabe', pos: 'SG / 190cm', tag: 'クラッチスナイパー', tagEn: 'Clutch Sniper', catchJa: '「接戦の土壇場ほど輝く強い心臓」', catchEn: '“A big-time clutch performer.”', birth: '2007.03.10 / 日本', h: '190cm / 83kg', reach: '245cm / 198cm', jump: '81cm', sprint: '3.25秒', lane: '10.7秒', recJa: '「苦しい場面で迷わずボールを要求できる。」', recEn: '“Lives for moments when the game is on line.”', coachJa: '片山 達也 監督', coachEn: 'Head Coach Tatsuya Katayama', schoolJa: '（洛南学園高校）', schoolEn: '(Rakunan Academy)', alumniEvalJa: '「プレッシャーに強い仲間。」', alumniEvalEn: '“Unbelievably clutch.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '18', p2: '2/4', p3: '3/5', ft: '1/1', reb: '2', ast: '1', to: '0', stl: '1', blk: '0', eff: '+12' },
-    { id: 6, team: 'BLACK', num: '#11', name: '小林 誠', nameEn: 'Makoto Kobayashi', pos: 'C / 205cm', tag: 'リムプロテクター', tagEn: 'Rim Protector', catchJa: '「218cmのリーチで壁を築く」', catchEn: '“An imposing shot-blocker.”', birth: '2006.09.18 / 日本', h: '205cm / 102kg', reach: '268cm / 218cm', jump: '76cm', sprint: '3.50秒', lane: '11.5秒', recJa: '「ドライブを躊躇させる存在感。」', recEn: '“Deters driving lanes completely.”', coachJa: '渡辺 宗徳 監督', coachEn: 'Head Coach Munenori Watanabe', schoolJa: '（北陸大濠高校）', schoolEn: '(Hokuriku Ohori)', alumniEvalJa: '「ゴール下の最後の砦。」', alumniEvalEn: '“Final line of defense.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '15', p2: '2/3', p3: '0/0', ft: '0/0', reb: '6', ast: '0', to: '1', stl: '0', blk: '3', eff: '+10' },
-    { id: 7, team: 'BLACK', num: '#13', name: '加藤 隼', nameEn: 'Hayate Kato', pos: 'PG / 183cm', tag: 'ハイスピードガード', tagEn: 'High-Speed Guard', catchJa: '「超高速チェンジ・オブ・ペース」', catchEn: '“Blazing 3.08s sprint speed.”', birth: '2007.07.04 / 日本', h: '183cm / 76kg', reach: '235cm / 188cm', jump: '84cm', sprint: '3.08秒', lane: '10.1秒', recJa: '「トランジションに最高のピース。」', recEn: '“Perfect fit for an up-tempo offense.”', coachJa: '小野 貴之 監督', coachEn: 'Head Coach Takayuki Ono', schoolJa: '（八王子実践高校）', schoolEn: '(Hachioji Jissen)', alumniEvalJa: '「相手のプレスを一人で切り裂く。」', alumniEvalEn: '“Breaks press defenses.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '12', p2: '1/3', p3: '0/1', ft: '2/2', reb: '1', ast: '4', to: '1', stl: '1', blk: '0', eff: '+6' },
-    { id: 8, team: 'BLACK', num: '#15', name: '吉田 樹', nameEn: 'Itsuki Yoshida', pos: 'SF / 193cm', tag: '泥臭いエナジー', tagEn: 'Gritty Energizer', catchJa: '「ルーズボールへの飛び込みと声出し」', catchEn: '“The ultimate glue guy.”', birth: '2007.02.28 / 日本', h: '193cm / 87kg', reach: '250cm / 200cm', jump: '83cm', sprint: '3.28秒', lane: '10.9秒', recJa: '「数字に出ないプレイで貢献する接着剤。」', recEn: '“Does all the unselfish dirty work.”', coachJa: '松本 昌也 監督', coachEn: 'Head Coach Masaya Matsumoto', schoolJa: '（報徳学園高校）', schoolEn: '(Hotoku Academy)', alumniEvalJa: '「チーム文化を作る原動力。」', alumniEvalEn: '“Builds winning culture.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '10', p2: '1/2', p3: '0/1', ft: '0/0', reb: '3', ast: '1', to: '0', stl: '2', blk: '0', eff: '+5' },
+    { 
+      id: 1, team: 'BLACK', num: '#1', name: '山田 太郎', nameEn: 'Taro Yamada', pos: 'PG / 188cm', tag: 'コート上の指揮官', tagEn: 'Court Commander',
+      catchJa: '「超人的視野と冷静沈着なIQで、NCAA D1のプレッシャーすら支配するNo.1ガード」',
+      catchEn: '“A elite floor general with high-level IQ, ready to command the pace in NCAA D1.”',
+      birth: '2007.04.12 / 日本', h: '188cm / 81kg', reach: '242cm / 196cm', jump: '82cm', sprint: '3.18秒', lane: '10.5秒',
+      recJa: '「彼は単に『技術が高いPG』ではありません。チームが最も苦しい場面で、誰よりも冷静に味方の表情を見つめ、たった一本のパスでコートの空気を一変させる『本物の将』です。練習が終わった後も誰もいない体育館でノートを開き、次の相手のスカウティングに没頭する彼の姿勢に、私は指導者として何度も背中を押されました。NCAA D1という過酷な戦場へ、自信を持って彼を送り出します。」',
+      recEn: '“Taro is more than a skilled point guard; he is a true leader who changes the temperature of the court with a single pass. His relentless study of the game off the court inspires everyone. I send him to NCAA D1 with absolute pride and confidence.”',
+      coachJa: '井上 雄介 監督', coachEn: 'Head Coach Yusuke Inoue', schoolJa: '（開星国際高校 男子バスケットボール部）', schoolEn: '(Kaisei Kokusai High School)',
+      alumniEvalJa: '「太郎と最後に戦ったインターハイ予選、僕がミスをして崩れかけたハーフタイムに『先輩の力で勝たせてください』と真っ直ぐ目を見て言われ、目が覚めました。あいつは年下ですが、コートに入れば誰よりも背中が大きく見える。日本バスケの未来を背負うのは、間違いなく太郎です。」',
+      alumniEvalEn: '“During a tough halftime in my senior year, Taro looked me in the eye and demanded my best. Despite being younger, his presence on the court was towering. He is, without a doubt, the future of Japanese basketball.”',
+      alumniNameJa: '─ 2学年先輩・現Bリーグ所属 OB選手より', alumniNameEn: '─ Senior Alumni (Current B.League Pro)',
+      min: '24', p2: '5/7', p3: '2/4', ft: '2/2', reb: '4', ast: '8', to: '2', stl: '3', blk: '0', eff: '+22' 
+    },
+    { 
+      id: 2, team: 'BLACK', num: '#3', name: '佐藤 健', nameEn: 'Ken Sato', pos: 'SG / 192cm', tag: 'ディープシューター', tagEn: 'Deep Shooter',
+      catchJa: '「深い位置からのリリースでゲームを一変させる、冷徹な純粋スナイパー」',
+      catchEn: '“A lethal sharpshooter with NBA-range, capable of changing the game in seconds.”',
+      birth: '2007.08.22 / 日本', h: '192cm / 85kg', reach: '248cm / 201cm', jump: '78cm', sprint: '3.30秒', lane: '11.0秒',
+      recJa: '「佐藤の強さはシュート力ではありません。どれだけ連続で外しても、次の1本を『決める気しかしない』と言って迷わず打ち抜ける心臓の強さです。毎日500本のインフォームシュートを欠かさず積み重ねてきた努力の裏付けがあるからこそ、彼の放つ放物線には勝利を引き寄せる特別な重みがあります。」',
+      recEn: '“Ken’s true weapon is his unshakable heart. No matter how many shots he misses, he steps up to take the next one with absolute conviction. Backed by 500 daily jumpers, his shot carries the gravity that decides big games.”',
+      coachJa: '佐藤 誠二 監督', coachEn: 'Head Coach Seiji Sato', schoolJa: '（東仙台学院高校 男子バスケットボール部）', schoolEn: '(Higashi Sendai Academy)',
+      alumniEvalJa: '「あいつが1年の時、シュートが入らなくて泣きながら夜遅くまで自主練していた姿を知っています。だからこそ、今のアメリカレベルのディープ3Pを見ても驚きません。大事なラストポゼッション、ボールを預けるなら佐藤以外考えられません。」',
+      alumniEvalEn: '“I remember Ken crying in the gym late at night as a freshman when his shot wasn’t falling. Seeing him hit deep 3s now doesn’t surprise me at all. On a final possession, there is no one else I’d trust more.”',
+      alumniNameJa: '─ 1学年先輩・現NCAA D1所属 OB選手より', alumniNameEn: '─ Senior Alumni (Current NCAA D1 Player)',
+      min: '26', p2: '4/8', p3: '4/7', ft: '2/2', reb: '3', ast: '2', to: '1', stl: '1', blk: '0', eff: '+20' 
+    },
+    { 
+      id: 3, team: 'BLACK', num: '#5', name: '高橋 翼', nameEn: 'Tsubasa Takahashi', pos: 'SF / 196cm', tag: '脅威のウイングスパン', tagEn: 'Threat Wingspan',
+      catchJa: '「208cmのウイングスパンと空を切り裂く跳躍力を持つ、規格外のオールラウンダー」',
+      catchEn: '“Freakish length and athleticism. A versatile wing built for the modern D1 game.”',
+      birth: '2006.11.05 / 日本・米', h: '196cm / 90kg', reach: '256cm / 208cm', jump: '88cm', sprint: '3.20秒', lane: '10.8秒',
+      recJa: '「恵まれたサイズとウイングスパンに甘えることなく、チームで一番泥臭く床に飛び込めるのが高橋です。『自分が日本バスケの壁を壊す』という強い覚悟を持ち、常に世界の同世代の映像をチェックして己を追い込んでいます。本気でNBAを狙える日本人の一人だと断言できます。」',
+      recEn: '“Tsubasa never relies solely on his 6’10” wingspan; he dives for loose balls harder than anyone. Driven by a mission to break barriers for Japanese basketball, his ceiling is genuinely NBA-caliber.”',
+      coachJa: 'ジェームズ・ハリス 監督', coachEn: 'Head Coach James Harris', schoolJa: '（インターナショナル・セント・ハイスクール）', schoolEn: '(St. International High School)',
+      alumniEvalJa: '「翼のポテンシャルは怪物の域ですが、何より最高なのはあいつの『素直さとハングリーさ』です。どれだけ褒められても満足せず、僕ら先輩のプレイを見て貪欲に吸収しようとしていた。アメリカの強烈なウイング陣とやり合う姿が目に浮かびます。」',
+      alumniEvalEn: '“Tsubasa’s physical tools are monstrous, but his humility and hunger are what make him special. He never satisfies with praise. I can’t wait to watch him battle elite wings in the States.”',
+      alumniNameJa: '─ 2学年先輩・現NCAA D1所属 OB選手より', alumniNameEn: '─ Senior Alumni (Current NCAA D1 Player)',
+      min: '20', p2: '3/6', p3: '1/3', ft: '1/2', reb: '7', ast: '3', to: '2', stl: '2', blk: '2', eff: '+15' 
+    },
+    { 
+      id: 4, team: 'BLACK', num: '#7', name: '伊藤 蓮', nameEn: 'Ren Ito', pos: 'PF / 202cm', tag: 'インサイドの要', tagEn: 'Paint Anchor',
+      catchJa: '「ペイントエリアを完全掌握する、闘志あふれるモンスターリバウンダー」',
+      catchEn: '“A relentless warrior in the paint who dominates the glass with physical toughness.”',
+      birth: '2007.01.15 / 日本', h: '202cm / 98kg', reach: '262cm / 212cm', jump: '80cm', sprint: '3.40秒', lane: '11.2秒',
+      recJa: '「留学生ビッグマン相手にも一切怯まず、泥だらけになってインサイドを守り抜いてきた男です。擦り傷だらけの身体でコートに立ち続ける彼の闘志が、何度チームの危機を救ってきたか分かりません。アメリカの強烈なフィジカルにも絶対にくじけない『雑草魂』を持っています。」',
+      recEn: '“Ren battles opposing bigs in the paint with zero fear. Covered in bruises, his sheer grit has saved our team countless times. He carries an unbreakable warrior spirit that will thrive in American college basketball.”',
+      coachJa: '川崎 慶太 監督', coachEn: 'Head Coach Keita Kawasaki', schoolJa: '（福岡第一総合高校 男子バスケットボール部）', schoolEn: '(Fukuoka Daiichi High School)',
+      alumniEvalJa: '「蓮のリバウンド一本で、どれだけベンチと会場が湧き上がったか。あいつは数字以上の熱量をチームに注入してくれる最高のインサイドです。体当たりを恐れないその泥臭さは、世界の舞台でこそ輝きます。」',
+      alumniEvalEn: '“The energy Ren creates with one offensive rebound ignites the entire arena. He brings passion that stats can’t measure. His fearless, blue-collar play style is built for the global stage.”',
+      alumniNameJa: '─ 1学年先輩・現Bリーグプロ選手より', alumniNameEn: '─ Senior Alumni (Current B.League Pro)',
+      min: '22', p2: '6/9', p3: '0/0', ft: '0/1', reb: '9', ast: '1', to: '1', stl: '0', blk: '1', eff: '+16' 
+    },
+    { id: 5, team: 'BLACK', num: '#9', name: '渡辺 陸', nameEn: 'Riku Watanabe', pos: 'SG / 190cm', tag: 'クラッチスナイパー', tagEn: 'Clutch Sniper', catchJa: '「接戦の土壇場ほど輝く、強い心臓を持つクラッチウィザード」', catchEn: '“A big-time clutch performer who thrives under bright lights and high pressure.”', birth: '2007.03.10 / 日本', h: '190cm / 83kg', reach: '245cm / 198cm', jump: '81cm', sprint: '3.25秒', lane: '10.7秒', recJa: '「アウェイの大歓声や極限のプレッシャーの中でも笑ってシュートを放てる男です。彼の勝負強さはチームの宝です。」', recEn: '“Riku smiles under intense pressure. His big-shot ability is a rare gift.”', coachJa: '片山 達也 監督', coachEn: 'Head Coach Tatsuya Katayama', schoolJa: '（洛南学園高校）', schoolEn: '(Rakunan Academy)', alumniEvalJa: '「ベンチにいる時も誰よりも声を出し、コートに出れば一瞬で流れを変える。本当に心強い後輩です。」', alumniEvalEn: '“Vocal from the bench, lethal on the floor. A junior I am truly proud of.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '18', p2: '2/4', p3: '3/5', ft: '1/1', reb: '2', ast: '1', to: '0', stl: '1', blk: '0', eff: '+12' },
+    { id: 6, team: 'BLACK', num: '#11', name: '小林 誠', nameEn: 'Makoto Kobayashi', pos: 'C / 205cm', tag: 'リムプロテクター', tagEn: 'Rim Protector', catchJa: '「218cmのリーチでゴール下に壁を築く圧倒的リムプロテクター」', catchEn: '“An imposing shot-blocker anchoring the defense.”', birth: '2006.09.18 / 日本', h: '205cm / 102kg', reach: '268cm / 218cm', jump: '76cm', sprint: '3.50秒', lane: '11.5秒', recJa: '「ゴール下の守護神。彼が後ろに控えている安心感が、ウイング陣の積極的な守備を引き出します。」', recEn: '“Our ultimate rim anchor. His presence gives guards the confidence to press hard.”', coachJa: '渡辺 宗徳 監督', coachEn: 'Head Coach Munenori Watanabe', schoolJa: '（北陸大濠高校）', schoolEn: '(Hokuriku Ohori)', alumniEvalJa: '「誠がゴール下でブロックを決めた後の雄叫びは、チームの士気を最高潮に高めてくれました。」', alumniEvalEn: '“His roar after a big block turns the momentum of the entire game.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '15', p2: '2/3', p3: '0/0', ft: '0/0', reb: '6', ast: '0', to: '1', stl: '0', blk: '3', eff: '+10' },
+    { id: 7, team: 'BLACK', num: '#13', name: '加藤 隼', nameEn: 'Hayate Kato', pos: 'PG / 183cm', tag: 'ハイスピードガード', tagEn: 'High-Speed Guard', catchJa: '「3/4スプリント3.08秒。相手のDF陣を粉砕する超高速スピードスター」', catchEn: '“Blazing 3.08s sprint speed. Dynamic guard.”', birth: '2007.07.04 / 日本', h: '183cm / 76kg', reach: '235cm / 188cm', jump: '84cm', sprint: '3.08秒', lane: '10.1秒', recJa: '「相手がゾーンを組む暇すら与えない稲妻のような速攻。彼の推進力は世界に通じます。」', recEn: '“A lightning fast-break threat that destroys defensive setups before they form.”', coachJa: '小野 貴之 監督', coachEn: 'Head Coach Takayuki Ono', schoolJa: '（八王子実践高校）', schoolEn: '(Hachioji Jissen)', alumniEvalJa: '「隼の一歩目は横で見ていてドン引きするレベル。アメリカのプレスも置き去りにしてほしい！」', alumniEvalEn: '“His first step is frighteningly fast. I want to see him blow past American presses.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '12', p2: '1/3', p3: '0/1', ft: '2/2', reb: '1', ast: '4', to: '1', stl: '1', blk: '0', eff: '+6' },
+    { id: 8, team: 'BLACK', num: '#15', name: '吉田 樹', nameEn: 'Itsuki Yoshida', pos: 'SF / 193cm', tag: '泥臭いエナジー', tagEn: 'Gritty Energizer', catchJa: '「ルーズボールへの飛び込みと声出しでチームの魂を燃やすエナジーガイ」', catchEn: '“The ultimate glue guy whose energy ignites the roster.”', birth: '2007.02.28 / 日本', h: '193cm / 87kg', reach: '250cm / 200cm', jump: '83cm', sprint: '3.28秒', lane: '10.9秒', recJa: '「スタッツには表れない泥臭いプレイで勝利をたぐり寄せる、チームの心臓です。」', recEn: '“The heartbeat of our squad. Wins games through unselfish, gritty hustle.”', coachJa: '松本 昌也 監督', coachEn: 'Head Coach Masaya Matsumoto', schoolJa: '（報徳学園高校）', schoolEn: '(Hotoku Academy)', alumniEvalJa: '「樹がパイプ椅子から飛び出して声を張り上げる姿に、どれだけ助けられたか。本物の最高の仲間です。」', alumniEvalEn: '“His non-stop vocal support from the bench and hustle on court mean everything.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '10', p2: '1/2', p3: '0/1', ft: '0/0', reb: '3', ast: '1', to: '0', stl: '2', blk: '0', eff: '+5' },
 
     // TEAM RED
-    { id: 9, team: 'RED', num: '#2', name: '中村 翔', nameEn: 'Sho Nakamura', pos: 'SG / 194cm', tag: 'ロックダウンDF', tagEn: 'Lockdown Defender', catchJa: '「どんなエースをも沈黙させるストッパー」', catchEn: '“A fierce 2-way wing locking down enemy options.”', birth: '2006.12.10 / 日本', h: '194cm / 88kg', reach: '252cm / 204cm', jump: '84cm', sprint: '3.22秒', lane: '10.6秒', recJa: '「相手エースを潰すことに執念を燃やす。」', recEn: '“A nightmare for opposing scorers.”', coachJa: '原田 健二 監督', coachEn: 'Head Coach Kenji Harada', schoolJa: '（中部大学第一高校）', schoolEn: '(Chubu Univ. Daiichi)', alumniEvalJa: '「相手エースを完封する。」', alumniEvalEn: '“Locking down enemy stars.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '25', p2: '6/10', p3: '2/4', ft: '2/3', reb: '4', ast: '3', to: '2', stl: '3', blk: '1', eff: '+21' },
-    { id: 10, team: 'RED', num: '#4', name: '小林 駿', nameEn: 'Shun Kobayashi', pos: 'PG / 186cm', tag: 'トリッキーハンドラー', tagEn: 'Creative Craftsman', catchJa: '「緩急自在のハンドリングとパス」', catchEn: '“Inventive ball-handler with elite feel.”', birth: '2007.05.20 / 日本', h: '186cm / 79kg', reach: '240cm / 192cm', jump: '85cm', sprint: '3.12秒', lane: '10.3秒', recJa: '「オフェンスに想像力を与える才能。」', recEn: '“Creative genius with high upside.”', coachJa: '斎藤 順平 監督', coachEn: 'Head Coach Junpei Saito', schoolJa: '（市立柏高校）', schoolEn: '(Kashiwa Municipal)', alumniEvalJa: '「ナイスパスが飛んできてワクワクする。」', alumniEvalEn: '“Playing with him is thrilling.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '23', p2: '3/6', p3: '3/5', ft: '0/0', reb: '2', ast: '6', to: '3', stl: '2', blk: '0', eff: '+16' },
-    { id: 11, team: 'RED', num: '#6', name: '加藤 龍', nameEn: 'Ryu Kato', pos: 'SF / 197cm', tag: 'ハイフライヤー', tagEn: 'High-Flyer', catchJa: '「最高到達点350cmオーバー」', catchEn: '“Sky-walking athlete with 35” vertical.”', birth: '2007.01.08 / 日本・ナイジェリア', h: '197cm / 91kg', reach: '257cm / 209cm', jump: '92cm', sprint: '3.15秒', lane: '10.5秒', recJa: '「ハイライトを生み出し続ける生粋のハイフライヤー。」', recEn: '“Electrifying D1 prospect.”', coachJa: 'マイケル・ブラウン 監督', coachEn: 'Head Coach Michael Brown', schoolJa: '（ASIJ）', schoolEn: '(ASIJ)', alumniEvalJa: '「一瞬で空気を変えるダンク。」', alumniEvalEn: '“Electrifies the arena.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '21', p2: '4/7', p3: '1/2', ft: '0/1', reb: '6', ast: '2', to: '1', stl: '1', blk: '1', eff: '+14' },
-    { id: 12, team: 'RED', num: '#8', name: '吉田 匠', nameEn: 'Takumi Yoshida', pos: 'PF / 200cm', tag: 'ストレッチ４', tagEn: 'Stretch Big', catchJa: '「200cmの高さから確実な3Pを射抜く」', catchEn: '“Modern 6’7” stretch-four.”', birth: '2006.10.30 / 日本', h: '200cm / 95kg', reach: '260cm / 206cm', jump: '79cm', sprint: '3.35秒', lane: '11.1秒', recJa: '「戦術の幅を広げてくれる大型選手。」', recEn: '“Textbook stretch-4 required today.”', coachJa: '木村 勝志 監督', coachEn: 'Head Coach Katsushi Kimura', schoolJa: '（北陸学院高校）', schoolEn: '(Hokuriku Gakuin)', alumniEvalJa: '「2mの高さで外から決められるのは強力。」', alumniEvalEn: '“Dramatically expands options.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '19', p2: '3/5', p3: '2/3', ft: '1/2', reb: '5', ast: '1', to: '1', stl: '0', blk: '1', eff: '+13' },
-    { id: 13, team: 'RED', num: '#10', name: '山本 葵', nameEn: 'Aoi Yamamoto', pos: 'C / 204cm', tag: 'ペイントアンカー', tagEn: 'Solid Anchor', catchJa: '「スクリーンとリバウンドで味方を活かす」', catchEn: '“Physical, unselfish center.”', birth: '2007.03.15 / 日本', h: '204cm / 100kg', reach: '265cm / 214cm', jump: '77cm', sprint: '3.45秒', lane: '11.3秒', recJa: '「全幅の信頼を寄せられる実直なビッグマン。」', recEn: '“Dependable big man.”', coachJa: '高橋 哲也 監督', coachEn: 'Head Coach Tetsuya Takahashi', schoolJa: '（帝京長岡高校）', schoolEn: '(Teikyo Nagaoka)', alumniEvalJa: '「スクリーンが痛くて効く名脇役。」', alumniEvalEn: '“Screens are bone-crushing.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '17', p2: '4/6', p3: '0/0', ft: '2/4', reb: '8', ast: '0', to: '0', stl: '0', blk: '2', eff: '+12' },
-    { id: 14, team: 'RED', num: '#12', name: '森 健斗', nameEn: 'Kento Mori', pos: 'SG / 189cm', tag: 'エナジーガード', tagEn: 'Press Guard', catchJa: '「オールコートで相手ガードを苦しめる」', catchEn: '“94-foot pressure defender.”', birth: '2007.08.11 / 日本', h: '189cm / 82kg', reach: '243cm / 195cm', jump: '80cm', sprint: '3.20秒', lane: '10.6秒', recJa: '「ディフェンスのギアを引き上げるスペシャリスト。」', recEn: '“Applies non-stop pressure.”', coachJa: '西村 正樹 監督', coachEn: 'Head Coach Masaki Nishimura', schoolJa: '（東山高校）', schoolEn: '(Higashiyama)', alumniEvalJa: '「前線から当たるだけで相手が嫌がる。」', alumniEvalEn: '“Full-court pressure disrupts composure.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '14', p2: '1/3', p3: '1/2', ft: '0/0', reb: '2', ast: '2', to: '1', stl: '2', blk: '0', eff: '+6' },
-    { id: 15, team: 'RED', num: '#14', name: '池田 陽', nameEn: 'Haru Ikeda', pos: 'PG / 182cm', tag: 'ゲームチェンジャー', tagEn: 'Game Changer', catchJa: '「一瞬で停滞したオフェンスを活性化」', catchEn: '“Spark-plug guard shifting pace.”', birth: '2007.09.01 / 日本', h: '182cm / 75kg', reach: '234cm / 186cm', jump: '82cm', sprint: '3.10秒', lane: '10.2秒', recJa: '「恐れることなくドライブで割って入る。」', recEn: '“Fearless penetration breaks defenses.”', coachJa: '岡田 慎吾 監督', coachEn: 'Head Coach Shingo Okada', schoolJa: '（能代科学技術高校）', schoolEn: '(Noshiro Tech)', alumniEvalJa: '「ベンチから一瞬で流れを変える。」', alumniEvalEn: '“Instant spark plug off bench.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '11', p2: '1/2', p3: '0/1', ft: '1/2', reb: '1', ast: '3', to: '1', stl: '1', blk: '0', eff: '+4' },
-    { id: 16, team: 'RED', num: '#16', name: '橋本 颯', nameEn: 'Hayate Hashimoto', pos: 'SF / 192cm', tag: 'ハッスルウイング', tagEn: 'Hustle Wing', catchJa: '「泥臭い献身でインサイドを救う」', catchEn: '“Unselfish wing cutting hard.”', birth: '2007.02.14 / 日本', h: '192cm / 86kg', reach: '248cm / 199cm', jump: '81cm', sprint: '3.30秒', lane: '10.8秒', recJa: '「チームの勝利のために身を削る選手。」', recEn: '“Plays with maximum effort.”', coachJa: '工藤 直樹 監督', coachEn: 'Head Coach Naoki Kudo', schoolJa: '（明成学院高校）', schoolEn: '(Meisei Gakuin)', alumniEvalJa: '「ルーズボール飛び込みで何度も救われた。」', alumniEvalEn: '“Diving for loose balls saved us.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '9', p2: '0/1', p3: '0/1', ft: '0/0', reb: '2', ast: '0', to: '0', stl: '1', blk: '0', eff: '+2' }
+    { id: 9, team: 'RED', num: '#2', name: '中村 翔', nameEn: 'Sho Nakamura', pos: 'SG / 194cm', tag: 'ロックダウンDF', tagEn: 'Lockdown Defender', catchJa: '「どんなエースをも沈黙させる、情熱と冷徹さを併せ持ったストッパー」', catchEn: '“A fierce 2-way wing locking down enemy options.”', birth: '2006.12.10 / 日本', h: '194cm / 88kg', reach: '252cm / 204cm', jump: '84cm', sprint: '3.22秒', lane: '10.6秒', recJa: '「『相手の1番から3番のエースは俺に任せてください』と毎回言い切る強烈な責任感を持っています。」', recEn: '“ Demands the toughest defensive assignment every single game with fierce pride.”', coachJa: '原田 健二 監督', coachEn: 'Head Coach Kenji Harada', schoolJa: '（中部大学第一高校）', schoolEn: '(Chubu Univ. Daiichi)', alumniEvalJa: '「翔が相手エースに粘り強く張り付いてくれるから、オフェンスに集中できた。最高の相棒です。」', alumniEvalEn: '“Sho locking down the enemy’s best scorer freed the rest of us to dominate on offense.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '25', p2: '6/10', p3: '2/4', ft: '2/3', reb: '4', ast: '3', to: '2', stl: '3', blk: '1', eff: '+21' },
+    { id: 10, team: 'RED', num: '#4', name: '小林 駿', nameEn: 'Shun Kobayashi', pos: 'PG / 186cm', tag: 'トリッキーハンドラー', tagEn: 'Creative Craftsman', catchJa: '「緩急自在のハンドリングとクリエイティブなパスで魅了するファンタジスタ」', catchEn: '“Inventive ball-handler with elite feel.”', birth: '2007.05.20 / 日本', h: '186cm / 79kg', reach: '240cm / 192cm', jump: '85cm', sprint: '3.12秒', lane: '10.3秒', recJa: '「コート上の誰も予想できないパスを通すひらめきがある。観客を沸かせる真のエンターテイナーです。」', recEn: '“Possesses uncanny court vision. A true magician who electrifies the crowd.”', coachJa: '斎藤 順平 監督', coachEn: 'Head Coach Junpei Saito', schoolJa: '（市立柏高校）', schoolEn: '(Kashiwa Municipal)', alumniEvalJa: '「駿とプレイしていると『え、そこ見てたの！？』ってパスが来て本当に楽しい。ワクワクさせる男です。」', alumniEvalEn: '“Playing with Shun is pure joy. He delivers passes you didn’t even know were open.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '23', p2: '3/6', p3: '3/5', ft: '0/0', reb: '2', ast: '6', to: '3', stl: '2', blk: '0', eff: '+16' },
+    { id: 11, team: 'RED', num: '#6', name: '加藤 龍', nameEn: 'Ryu Kato', pos: 'SF / 197cm', tag: 'ハイフライヤー', tagEn: 'High-Flyer', catchJa: '「最高到達点350cmオーバー。重力を無視したダンクで会場を熱狂の渦に」', catchEn: '“Sky-walking athlete with 35” vertical.”', birth: '2007.01.08 / 日本・ナイジェリア', h: '197cm / 91kg', reach: '257cm / 209cm', jump: '92cm', sprint: '3.15秒', lane: '10.5秒', recJa: '「彼のワンハンドダンク一発でアリーナの空気が一瞬でひっくり返る。生粋のハイフライヤーです。」', recEn: '“His explosive dunks completely shift arena momentum in a heartbeat.”', coachJa: 'マイケル・ブラウン 監督', coachEn: 'Head Coach Michael Brown', schoolJa: '（ASIJ）', schoolEn: '(ASIJ)', alumniEvalJa: '「龍のジャンプ力は隣で見ていても引くレベル（笑）。アメリカの怪物たちの上からぶち込んでほしい！」', alumniEvalEn: '“Ryu’s bounce is unreal. I want to see him dunk over elite US rim protectors!”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '21', p2: '4/7', p3: '1/2', ft: '0/1', reb: '6', ast: '2', to: '1', stl: '1', blk: '1', eff: '+14' },
+    { id: 12, team: 'RED', num: '#8', name: '吉田 匠', nameEn: 'Takumi Yoshida', pos: 'PF / 200cm', tag: 'ストレッチ４', tagEn: 'Stretch Big', catchJa: '「200cmの高さから確実な3Pを射抜く現代型ストレッチビッグ」', catchEn: '“Modern 6’7” stretch-four.”', birth: '2006.10.30 / 日本', h: '200cm / 95kg', reach: '260cm / 206cm', jump: '79cm', sprint: '3.35秒', lane: '11.1秒', recJa: '「インサイドも守れて外から3Pも射抜ける。戦術の幅を激変させてくれる貴重な大器です。」', recEn: '“A versatile 6’7” big who stretches the floor and opens up driving lanes.”', coachJa: '木村 勝志 監督', coachEn: 'Head Coach Katsushi Kimura', schoolJa: '（北陸学院高校）', schoolEn: '(Hokuriku Gakuin)', alumniEvalJa: '「2mある匠がアウトサイドに立つだけで相手インサイドが出てくるからドライブしやすかった！」', alumniEvalEn: '“His shooting gravity pulls bigs out of the paint, making life easy for guards.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '19', p2: '3/5', p3: '2/3', ft: '1/2', reb: '5', ast: '1', to: '1', stl: '0', blk: '1', eff: '+13' },
+    { id: 13, team: 'RED', num: '#10', name: '山本 葵', nameEn: 'Aoi Yamamoto', pos: 'C / 204cm', tag: 'ペイントアンカー', tagEn: 'Solid Anchor', catchJa: '「強固なスクリーンとリバウンドで味方を活かす職人肌インサイド」', catchEn: '“Physical, unselfish center.”', birth: '2007.03.15 / 日本', h: '204cm / 100kg', reach: '265cm / 214cm', jump: '77cm', sprint: '3.45秒', lane: '11.3秒', recJa: '「自己主張を抑え、徹底してチームの土台作りに徹することができる誠実な男です。」', recEn: '“Unselfish and disciplined. Anchors the team with rock-solid fundamentals.”', coachJa: '高橋 哲也 監督', coachEn: 'Head Coach Tetsuya Takahashi', schoolJa: '（帝京長岡高校）', schoolEn: '(Teikyo Nagaoka)', alumniEvalJa: '「葵のスクリーンはめちゃくちゃ効く。僕らが気持ちよくシュートを打てたのは葵のおかげです。」', alumniEvalEn: '“Aoi’s screens create wide-open looks for shooters. The ultimate team player.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '17', p2: '4/6', p3: '0/0', ft: '2/4', reb: '8', ast: '0', to: '0', stl: '0', blk: '2', eff: '+12' },
+    { id: 14, team: 'RED', num: '#12', name: '森 健斗', nameEn: 'Kento Mori', pos: 'SG / 189cm', tag: 'エナジーガード', tagEn: 'Press Guard', catchJa: '「オールコートで相手ガードを苦しめる執念のプレッシャーディフェンダー」', catchEn: '“94-foot pressure defender.”', birth: '2007.08.11 / 日本', h: '189cm / 82kg', reach: '243cm / 195cm', jump: '80cm', sprint: '3.20秒', lane: '10.6秒', recJa: '「コートに出た瞬間にオールコートで圧力をかけ、チームの守備のギアを一段引き上げます。」', recEn: '“Instantly elevates team defensive intensity with 94-foot ball pressure.”', coachJa: '西村 正樹 監督', coachEn: 'Head Coach Masaki Nishimura', schoolJa: '（東山高校）', schoolEn: '(Higashiyama)', alumniEvalJa: '「健斗が前から当たると相手ガードがあからさまに嫌そうな顔をする。頼りになるストッパーです。」', alumniEvalEn: '“Opposing guards hate facing Kento’s pressure. A true defensive pest.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '14', p2: '1/3', p3: '1/2', ft: '0/0', reb: '2', ast: '2', to: '1', stl: '2', blk: '0', eff: '+6' },
+    { id: 15, team: 'RED', num: '#14', name: '池田 陽', nameEn: 'Haru Ikeda', pos: 'PG / 182cm', tag: 'ゲームチェンジャー', tagEn: 'Game Changer', catchJa: '「ベンチから登場し一瞬で停滞したオフェンスを活性化させる」', catchEn: '“Spark-plug guard shifting pace.”', birth: '2007.09.01 / 日本', h: '182cm / 75kg', reach: '234cm / 186cm', jump: '82cm', sprint: '3.10秒', lane: '10.2秒', recJa: '「重苦しい展開でも恐れることなく果敢にペイントへアタックできる強いメンタルがあります。」', recEn: '“Fearlessly attacks tight paint defenses when the team needs a spark.”', coachJa: '岡田 慎吾 監督', coachEn: 'Head Coach Shingo Okada', schoolJa: '（能代科学技術高校）', schoolEn: '(Noshiro Tech)', alumniEvalJa: '「陽がコートに入ると一気に試合のテンポが上がる。まさに頼れるシックスマンです！」', alumniEvalEn: '“Haru stepping onto the court instantly shifts the pace. A game-changing 6th man.”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '11', p2: '1/2', p3: '0/1', ft: '1/2', reb: '1', ast: '3', to: '1', stl: '1', blk: '0', eff: '+4' },
+    { id: 16, team: 'RED', num: '#16', name: '橋本 颯', nameEn: 'Hayate Hashimoto', pos: 'SF / 192cm', tag: 'ハッスルウイング', tagEn: 'Hustle Wing', catchJa: '「泥臭い献身と力強いダイブでインサイドを救うハッスルマン」', catchEn: '“Unselfish wing cutting hard.”', birth: '2007.02.14 / 日本', h: '192cm / 86kg', reach: '248cm / 199cm', jump: '81cm', sprint: '3.30秒', lane: '10.8秒', recJa: '「自分の得点よりもチームの泥臭い仕事を泥だらけになって全頭できる素晴らしい選手です。」', recEn: '“Embraces dirty work over personal stats with unselfish dedication.”', coachJa: '工藤 直樹 監督', coachEn: 'Head Coach Naoki Kudo', schoolJa: '（明成学院高校）', schoolEn: '(Meisei Gakuin)', alumniEvalJa: '「颯がルーズボールに飛び込んでボールをつないでくれたおかげで勝てた試合が何度もあった！」', alumniEvalEn: '“Hayate diving for loose balls saved us in so many close games!”', alumniNameJa: '─ OB選手より', alumniNameEn: '─ Senior Alumni', min: '9', p2: '0/1', p3: '0/1', ft: '0/0', reb: '2', ast: '0', to: '0', stl: '1', blk: '0', eff: '+2' }
   ];
 
   players.forEach((p, idx) => {
