@@ -48,7 +48,7 @@
     }
     .lang-btn.active { background: var(--red-primary); color: #fff; }
 
-    /* ナビゲーション（タブをすっきり整理） */
+    /* ナビゲーション */
     nav { display: flex; background-color: #111; border-bottom: 1px solid var(--card-border); overflow-x: auto; white-space: nowrap; }
     nav button { flex: 1; padding: 12px 8px; background: none; border: none; color: var(--text-muted); font-size: 0.7rem; font-weight: bold; cursor: pointer; border-bottom: 3px solid transparent; }
     nav button.active { color: var(--text-main); border-bottom-color: var(--red-primary); background-color: #1a0000; }
@@ -259,142 +259,23 @@
     .select-item { display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid var(--card-border); cursor: pointer; }
     .select-item:hover { background: #222; }
 
-    function setLanguage(lang) {
-    currentLang = lang;
-
-    const btnJa = document.getElementById('btnJa');
-    const btnEn = document.getElementById('btnEn');
-    if (btnJa) btnJa.classList.toggle('active', lang === 'JA');
-    if (btnEn) btnEn.classList.toggle('active', lang === 'EN');
-
-    const t = i18n[lang];
-    if (!t) return;
-
-    // 安全にテキストをセットする関数（元のJAデータをそのまま原交なしで戻す）
-    const safeSetText = (id, text) => {
-      const el = document.getElementById(id);
-      if (el && text !== undefined) {
-        el.innerText = text;
-      }
-    };
-
-    /* ナビゲーション */
-    safeSetText('navHome', t.navHome);
-    safeSetText('navCatalog', t.navCatalog);
-    safeSetText('navCombine', t.navCombine);
-    safeSetText('navSummit', t.navSummit);
-    safeSetText('navVote', t.navVote);
-    safeSetText('navAlumni', t.navAlumni);
-    safeSetText('navNews', t.navNews);
-
-    /* ヘッダー・ヒーロー */
-    safeSetText('appHeaderTitle', t.appTitle);
-    safeSetText('heroSubText', t.subText);
-    safeSetText('gridSectionHeader', t.gridSectionHeader);
-    safeSetText('infoSectionHeader', t.infoSectionHeader);
-    safeSetText('m1Title', t.m1Title); safeSetText('m1Desc', t.m1Desc);
-    safeSetText('m2Title', t.m2Title); safeSetText('m2Desc', t.m2Desc);
-    safeSetText('m3Title', t.m3Title); safeSetText('m3Desc', t.m3Desc);
-    safeSetText('mMapTitle', t.mMapTitle); safeSetText('mMapDesc', t.mMapDesc);
-    safeSetText('mNewsTitle', t.mNewsTitle); safeSetText('mNewsDesc', t.mNewsDesc);
-    safeSetText('mAlumniTitle', t.mAlumniTitle); safeSetText('mAlumniDesc', t.mAlumniDesc);
-    safeSetText('mCombineTitle', t.mCombineTitle); safeSetText('mCombineDesc', t.mCombineDesc);
-    safeSetText('combineTitle', t.combineTitle); safeSetText('combineSub', t.combineSub);
-    safeSetText('trialsTitle', t.trialsTitle); safeSetText('trialsSub', t.trialsSub);
-
-    /* フィルターボタン */
-    const fKeys = ['fHeight', 'fJump', 'fMaxReach', 'fStandingReach', 'fReach', 'fSprint', 'fLane'];
-    ['fBtnHeight', 'fBtnJump', 'fBtnMaxReach', 'fBtnStandingReach', 'fBtnReach', 'fBtnSprint', 'fBtnLane'].forEach((id, i) => {
-      safeSetText(id, t[fKeys[i]]);
-    });
-    ['tfBtnHeight', 'tfBtnJump', 'tfBtnMaxReach', 'tfBtnStandingReach', 'tfBtnReach', 'tfBtnSprint', 'tfBtnLane'].forEach((id, i) => {
-      safeSetText(id, t[fKeys[i]]);
-    });
-
-    /* バナー等 */
-    safeSetText('clipHeader', t.clipHeader);
-    safeSetText('pickupHeader', t.pickupHeader);
-    safeSetText('top100Header', t.top100Header);
-    safeSetText('homeTop100Title', t.homeTop100Title);
-    safeSetText('homeTop100Sub', t.homeTop100Sub);
-    safeSetText('homeTop100Btn', t.homeTop100Btn);
-    safeSetText('mapHeader', t.mapHeader);
-    safeSetText('homeMapTitle', t.homeMapTitle);
-    safeSetText('homeMapSub', t.homeMapSub);
-    safeSetText('homeMapBtn', t.homeMapBtn);
-    safeSetText('goodsHeader', t.goodsHeader);
-    safeSetText('goodsTitle', t.goodsTitle);
-    safeSetText('goodsSub', t.goodsSub);
-    safeSetText('goodsBtn', t.goodsBtn);
-    safeSetText('boxHeader', t.boxHeader);
-    safeSetText('thPlayer', t.thPlayer);
-    safeSetText('voteHeader', t.voteHeader);
-
-    safeSetText('v1Title', t.v1Title); safeSetText('v1Desc', t.v1Desc);
-    safeSetText('v2Title', t.v2Title); safeSetText('v2Desc', t.v2Desc);
-    safeSetText('v3Title', t.v3Title); safeSetText('v3Desc', t.v3Desc);
-    safeSetText('v4Title', t.v4Title); safeSetText('v4Desc', t.v4Desc);
-    safeSetText('v5Title', t.v5Title); safeSetText('v5Desc', t.v5Desc);
-
-    safeSetText('lblBirth', t.lblBirth);
-    safeSetText('lblHeight', t.lblHeight);
-    safeSetText('lblReach', t.lblReach);
-    safeSetText('lblJump', t.lblJump);
-    safeSetText('lblSprint', t.lblSprint);
-    safeSetText('lblLane', t.lblLane);
-    safeSetText('lblRecommendHeader', t.lblRecommendHeader);
-    safeSetText('lblAlumniEvalHeader', t.lblAlumniEvalHeader);
-    safeSetText('lblVideoHeader', t.lblVideoHeader);
-    safeSetText('glowBtnText', t.glowBtnText);
-    safeSetText('glowCloseText', t.glowCloseText);
-
-    safeSetText('mapModalTitle', t.mapModalTitle);
-    
-    const mapDescList = document.getElementById('mapDescList');
-    if (mapDescList) {
-      mapDescList.innerHTML = `
-        <div>${t.mapDesc1 || ''}</div>
-        <div>${t.mapDesc2 || ''}</div>
-        <div>${t.mapDesc3 || ''}</div>
-      `;
+    /* Google翻訳による操作ブロックとレイアウト崩れの強制解除 */
+    .goog-te-banner-frame, 
+    .skiptranslate, 
+    #google_translate_element {
+      display: none !important;
+    }
+    body {
+      top: 0px !important;
+      position: static !important;
     }
 
-    safeSetText('vid1', t.vid1);
-    safeSetText('vid2', t.vid2);
-    safeSetText('vid3', t.vid3);
-    safeSetText('vid4', t.vid4);
-
-    if (currentRandomPlayer) {
-      const isJa = currentLang === 'JA';
-      safeSetText('pickupName', isJa ? `${currentRandomPlayer.name} (${currentRandomPlayer.pos})` : `${currentRandomPlayer.nameEn} (${currentRandomPlayer.posEn})`);
-      safeSetText('pickupCatch', isJa ? currentRandomPlayer.catchJa : currentRandomPlayer.catchEn);
+    /* 全ボタン・カードのタップ操作を最優先に確保 */
+    .app-container, button, .menu-card, .banner-card, .player-card, .combine-card {
+      pointer-events: auto !important;
+      touch-action: manipulation;
     }
-
-    renderPlayers();
-    renderBoxScore();
-    renderCombineRanking(currentCombineMetric);
-    renderTrialsRanking(currentTrialsMetric);
-    updateVoteButtonsUI();
-  }
-
-/* Google翻訳による操作ブロックとレイアウト崩れの強制解除 */
-.goog-te-banner-frame, 
-.skiptranslate, 
-#google_translate_element {
-  display: none !important;
-}
-body {
-  top: 0px !important;
-  position: static !important;
-}
-
-/* 全ボタン・カードのタップ操作を最優先に確保 */
-.app-container, button, .menu-card, .banner-card, .player-card, .combine-card {
-  pointer-events: auto !important;
-  touch-action: manipulation;
-}
-
-</style>
+  </style>
 </head>
 <body>
 
@@ -410,20 +291,17 @@ body {
       <h1 id="appHeaderTitle">日本最高峰バスケサミット App</h1>
       <div class="sub">BLACK NINJA SHOWCASE PLATFORM</div>
     </div>
-<!-- 既存の .lang-toggle 部分を以下に差し替え -->
-<div class="lang-toggle">
-  <button class="lang-btn active" id="btnJa" onclick="translatePage('ja')">JA</button>
-  <button class="lang-btn" id="btnEn" onclick="translatePage('en')">EN</button>
-</div>
-<!-- 隠し翻訳要素 -->
-<div id="google_translate_element" style="display:none;"></div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btnJa" onclick="setLanguage('JA')">JA</button>
+      <button class="lang-btn" id="btnEn" onclick="setLanguage('EN')">EN</button>
+    </div>
   </header>
 
-  <!-- ナビゲーション（予選測定会タブをなくしてシンプル化） -->
+  <!-- ナビゲーション -->
   <nav>
     <button class="nav-btn active" id="navHome" onclick="switchTab('home', this)">HOME</button>
     <button class="nav-btn" id="navCatalog" onclick="switchTab('catalog', this)">選手名鑑</button>
-    <button class="nav-btn" id="navCombine" onclick="switchTab('combine', this)">コンバイン</button>
+    <button class="nav-btn" id="navCombine" onclick="switchTab('combine', this)">本戦コンバイン</button>
     <button class="nav-btn" id="navSummit" onclick="switchTab('summit', this)">The GAME</button>
     <button class="nav-btn" id="navVote" onclick="switchTab('vote', this)">観客投票</button>
     <button class="nav-btn" id="navAlumni" onclick="switchTab('alumni', this)">卒業生</button>
@@ -458,12 +336,12 @@ body {
           <div class="menu-icon">🏀</div>
           <div class="menu-title" id="m1Title">選手名鑑 (16名)</div>
         </div>
-        <div class="menu-desc" id="m1Desc">サミット出場選手情報</div>
+        <div class="menu-desc" id="m1Desc">サミット出場選手情報詳細</div>
       </div>
       <div class="menu-card" onclick="switchTab('combine', document.querySelectorAll('.nav-btn')[2])">
         <div>
           <div class="menu-icon">⚡</div>
-          <div class="menu-title" id="mCombineTitle">コンバイン</div>
+          <div class="menu-title" id="mCombineTitle">本戦コンバイン</div>
         </div>
         <div class="menu-desc" id="mCombineDesc">選ばれし16名のフィジカルデータ</div>
       </div>
@@ -506,7 +384,7 @@ body {
       </div>
     </div>
 
-    <!-- ご指示の位置：ニュース＆卒業生マガジンのすぐ上に配置した予選測定会バナー -->
+    <!-- 予選測定会バナー -->
     <h3 style="font-size: 0.8rem; margin-bottom: 8px; color: var(--gold-accent);" id="top100Header">■ NATIONAL COMBINE TRIALS</h3>
     <div class="banner-card gold-bg" onclick="openTrialsModal()">
       <div style="display:flex; align-items:center; gap:10px;">
@@ -558,9 +436,9 @@ body {
     <div class="player-grid" id="playerGrid"></div>
   </div>
 
-  <!-- コンバイン（選ばれし16名専用ページ） -->
+  <!-- 本戦コンバイン（選ばれし16名専用ページ） -->
   <div id="combine" class="content-section">
-    <h3 style="font-size: 0.85rem; margin-bottom: 6px; color: var(--gold-accent);" id="combineTitle">■ コンバインデータ</h3>
+    <h3 style="font-size: 0.85rem; margin-bottom: 6px; color: var(--gold-accent);" id="combineTitle">■ 本戦サミットコンバイン (選ばれし16名)</h3>
     <div style="font-size:0.65rem; color:var(--text-muted); margin-bottom:12px;" id="combineSub">全米スカウトが直接視察するサミット本戦出場者のフィジカルスペック</div>
     
     <div class="filter-scroll">
@@ -682,7 +560,7 @@ body {
   </div>
 </div>
 
-<!-- ホームバナーからのみ呼び出される予選測定会（シンプル表一覧モーダル） -->
+<!-- 予選測定会（シンプル表一覧モーダル） -->
 <div class="modal-overlay" id="trialsModal">
   <div class="modal-content" style="max-width:460px; padding:16px 12px;">
     <button class="close-btn" onclick="closeModal('trialsModal')">✕</button>
@@ -968,7 +846,7 @@ body {
 
   const i18n = {
     JA: {
-      navHome: "HOME", navCatalog: "選手名鑑", navCombine: "コンバイン", navSummit: "The GAME", navVote: "観客投票", navAlumni: "卒業生", navNews: "BSニュース",
+      navHome: "HOME", navCatalog: "選手名鑑", navCombine: "本戦コンバイン", navSummit: "The GAME", navVote: "観客投票", navAlumni: "卒業生", navNews: "BSニュース",
       appTitle: "日本最高峰バスケサミット App",
       subText: "世界基準の原石がここに集結する",
       gridSectionHeader: "■ サミット特設コーナー",
@@ -979,7 +857,7 @@ body {
       mMapTitle: "ARENA MAP", mMapDesc: "会場案内図・ブース配置",
       mNewsTitle: "BSニュース", mNewsDesc: "最新情報・メディア報道",
       mAlumniTitle: "卒業生マガジン", mAlumniDesc: "NCAA挑戦追跡レポート",
-      mCombineTitle: "コンバイン", mCombineDesc: "選ばれし16名のフィジカルデータ",
+      mCombineTitle: "本戦コンバイン", mCombineDesc: "選ばれし16名のフィジカルデータ",
       combineTitle: "■ 本戦サミットコンバイン (選ばれし16名)",
       combineSub: "全米スカウトが直接視察するサミット本戦出場者のフィジカルスペック",
       trialsTitle: "■ 全国予選測定会 TOP100 表一覧",
@@ -1168,7 +1046,7 @@ body {
     container.appendChild(fragment);
   }
 
-function setLanguage(lang) {
+  function setLanguage(lang) {
     currentLang = lang;
 
     // ボタンのactive表示切り替え
@@ -1624,27 +1502,5 @@ function setLanguage(lang) {
     initApp();
   }
 </script>
-<!-- Google AI自動翻訳スクリプト -->
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'ja',
-      includedLanguages: 'en,ja',
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-
-  function translatePage(lang) {
-    document.getElementById('btnJa').classList.toggle('active', lang === 'ja');
-    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
-
-    const select = document.querySelector('.goog-te-combo');
-    if (select) {
-      select.value = lang;
-      select.dispatchEvent(new Event('change'));
-    }
-  }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
