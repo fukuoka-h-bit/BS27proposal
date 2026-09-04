@@ -258,7 +258,126 @@
     .select-list { max-height: 300px; overflow-y: auto; margin-top: 12px; }
     .select-item { display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid var(--card-border); cursor: pointer; }
     .select-item:hover { background: #222; }
-  </style>
+
+    function setLanguage(lang) {
+    currentLang = lang;
+
+    const btnJa = document.getElementById('btnJa');
+    const btnEn = document.getElementById('btnEn');
+    if (btnJa) btnJa.classList.toggle('active', lang === 'JA');
+    if (btnEn) btnEn.classList.toggle('active', lang === 'EN');
+
+    const t = i18n[lang];
+    if (!t) return;
+
+    // 安全にテキストをセットする関数（元のJAデータをそのまま原交なしで戻す）
+    const safeSetText = (id, text) => {
+      const el = document.getElementById(id);
+      if (el && text !== undefined) {
+        el.innerText = text;
+      }
+    };
+
+    /* ナビゲーション */
+    safeSetText('navHome', t.navHome);
+    safeSetText('navCatalog', t.navCatalog);
+    safeSetText('navCombine', t.navCombine);
+    safeSetText('navSummit', t.navSummit);
+    safeSetText('navVote', t.navVote);
+    safeSetText('navAlumni', t.navAlumni);
+    safeSetText('navNews', t.navNews);
+
+    /* ヘッダー・ヒーロー */
+    safeSetText('appHeaderTitle', t.appTitle);
+    safeSetText('heroSubText', t.subText);
+    safeSetText('gridSectionHeader', t.gridSectionHeader);
+    safeSetText('infoSectionHeader', t.infoSectionHeader);
+    safeSetText('m1Title', t.m1Title); safeSetText('m1Desc', t.m1Desc);
+    safeSetText('m2Title', t.m2Title); safeSetText('m2Desc', t.m2Desc);
+    safeSetText('m3Title', t.m3Title); safeSetText('m3Desc', t.m3Desc);
+    safeSetText('mMapTitle', t.mMapTitle); safeSetText('mMapDesc', t.mMapDesc);
+    safeSetText('mNewsTitle', t.mNewsTitle); safeSetText('mNewsDesc', t.mNewsDesc);
+    safeSetText('mAlumniTitle', t.mAlumniTitle); safeSetText('mAlumniDesc', t.mAlumniDesc);
+    safeSetText('mCombineTitle', t.mCombineTitle); safeSetText('mCombineDesc', t.mCombineDesc);
+    safeSetText('combineTitle', t.combineTitle); safeSetText('combineSub', t.combineSub);
+    safeSetText('trialsTitle', t.trialsTitle); safeSetText('trialsSub', t.trialsSub);
+
+    /* フィルターボタン */
+    const fKeys = ['fHeight', 'fJump', 'fMaxReach', 'fStandingReach', 'fReach', 'fSprint', 'fLane'];
+    ['fBtnHeight', 'fBtnJump', 'fBtnMaxReach', 'fBtnStandingReach', 'fBtnReach', 'fBtnSprint', 'fBtnLane'].forEach((id, i) => {
+      safeSetText(id, t[fKeys[i]]);
+    });
+    ['tfBtnHeight', 'tfBtnJump', 'tfBtnMaxReach', 'tfBtnStandingReach', 'tfBtnReach', 'tfBtnSprint', 'tfBtnLane'].forEach((id, i) => {
+      safeSetText(id, t[fKeys[i]]);
+    });
+
+    /* バナー等 */
+    safeSetText('clipHeader', t.clipHeader);
+    safeSetText('pickupHeader', t.pickupHeader);
+    safeSetText('top100Header', t.top100Header);
+    safeSetText('homeTop100Title', t.homeTop100Title);
+    safeSetText('homeTop100Sub', t.homeTop100Sub);
+    safeSetText('homeTop100Btn', t.homeTop100Btn);
+    safeSetText('mapHeader', t.mapHeader);
+    safeSetText('homeMapTitle', t.homeMapTitle);
+    safeSetText('homeMapSub', t.homeMapSub);
+    safeSetText('homeMapBtn', t.homeMapBtn);
+    safeSetText('goodsHeader', t.goodsHeader);
+    safeSetText('goodsTitle', t.goodsTitle);
+    safeSetText('goodsSub', t.goodsSub);
+    safeSetText('goodsBtn', t.goodsBtn);
+    safeSetText('boxHeader', t.boxHeader);
+    safeSetText('thPlayer', t.thPlayer);
+    safeSetText('voteHeader', t.voteHeader);
+
+    safeSetText('v1Title', t.v1Title); safeSetText('v1Desc', t.v1Desc);
+    safeSetText('v2Title', t.v2Title); safeSetText('v2Desc', t.v2Desc);
+    safeSetText('v3Title', t.v3Title); safeSetText('v3Desc', t.v3Desc);
+    safeSetText('v4Title', t.v4Title); safeSetText('v4Desc', t.v4Desc);
+    safeSetText('v5Title', t.v5Title); safeSetText('v5Desc', t.v5Desc);
+
+    safeSetText('lblBirth', t.lblBirth);
+    safeSetText('lblHeight', t.lblHeight);
+    safeSetText('lblReach', t.lblReach);
+    safeSetText('lblJump', t.lblJump);
+    safeSetText('lblSprint', t.lblSprint);
+    safeSetText('lblLane', t.lblLane);
+    safeSetText('lblRecommendHeader', t.lblRecommendHeader);
+    safeSetText('lblAlumniEvalHeader', t.lblAlumniEvalHeader);
+    safeSetText('lblVideoHeader', t.lblVideoHeader);
+    safeSetText('glowBtnText', t.glowBtnText);
+    safeSetText('glowCloseText', t.glowCloseText);
+
+    safeSetText('mapModalTitle', t.mapModalTitle);
+    
+    const mapDescList = document.getElementById('mapDescList');
+    if (mapDescList) {
+      mapDescList.innerHTML = `
+        <div>${t.mapDesc1 || ''}</div>
+        <div>${t.mapDesc2 || ''}</div>
+        <div>${t.mapDesc3 || ''}</div>
+      `;
+    }
+
+    safeSetText('vid1', t.vid1);
+    safeSetText('vid2', t.vid2);
+    safeSetText('vid3', t.vid3);
+    safeSetText('vid4', t.vid4);
+
+    if (currentRandomPlayer) {
+      const isJa = currentLang === 'JA';
+      safeSetText('pickupName', isJa ? `${currentRandomPlayer.name} (${currentRandomPlayer.pos})` : `${currentRandomPlayer.nameEn} (${currentRandomPlayer.posEn})`);
+      safeSetText('pickupCatch', isJa ? currentRandomPlayer.catchJa : currentRandomPlayer.catchEn);
+    }
+
+    renderPlayers();
+    renderBoxScore();
+    renderCombineRanking(currentCombineMetric);
+    renderTrialsRanking(currentTrialsMetric);
+    updateVoteButtonsUI();
+  }
+
+</style>
 </head>
 <body>
 
