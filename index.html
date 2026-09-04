@@ -428,6 +428,18 @@
     </div>
   </div>
 
+<h3 style="font-size: 0.8rem; margin-bottom: 8px; color: var(--gold-accent);" id="alumniSupportHeader">■ SUPPORT ALUMNI PROJECT</h3>
+<div class="banner-card gold-bg" onclick="alert('卒業生応援クラウドファンディング/スポンサー画面へ遷移（次回アップデート予定）')">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <span style="font-size:1.6rem;">🎓</span>
+    <div>
+      <div style="font-size:0.85rem; font-weight:bold; color:var(--gold-accent);" id="alumniSupportTitle">渡米卒業生を応援・ギフティング</div>
+      <div style="font-size:0.65rem; color:#ddd;" id="alumniSupportSub">NCAAや海外へ挑戦する原石たちの渡米・活動資金を直接支援</div>
+    </div>
+  </div>
+  <span style="font-size:0.8rem; color:var(--gold-accent); font-weight:bold;" id="alumniSupportBtn">応援 ➔</span>
+</div>
+
   <div id="catalog" class="content-section">
     <div class="team-tabs">
       <button class="team-btn black active" id="tBtnBlack" onclick="switchTeam('BLACK')">TEAM BLACK (8)</button>
@@ -902,7 +914,11 @@
       mapDesc2: "🍔 フードブース： 2Fコンコース（限定キッチンカー）",
       mapDesc3: "🚻 仮設トイレ / 救護所： 北口アリーナ通路沿い",
       btnSelect: "選択",
-      btnVoteAction: "投票する (選手を選択)"
+      btnVoteAction: "投票する (選手を選択)",
+      alumniSupportHeader: "■ SUPPORT ALUMNI PROJECT",
+      alumniSupportTitle: "渡米卒業生を応援・ギフティング",
+      alumniSupportSub: "NCAAや海外へ挑戦する原石たちの渡米・活動資金を直接支援",
+      alumniSupportBtn: "応援 ➔",
     },
     EN: {
       navHome: "HOME", navCatalog: "ROSTER", navCombine: "COMBINE", navSummit: "The GAME", navVote: "VOTING", navAlumni: "ALUMNI", navNews: "NEWS",
@@ -961,7 +977,11 @@
       mapDesc2: "🍔 Food Booths: 2F Concourse Trucks",
       mapDesc3: "Restrooms / First Aid: North Gate Hall",
       btnSelect: "Select",
-      btnVoteAction: "Vote (Select Player)"
+      btnVoteAction: "Vote (Select Player)",
+      alumniSupportHeader: "■ SUPPORT ALUMNI PROJECT",
+      alumniSupportTitle: "Support & Fund Alumni",
+      alumniSupportSub: "Directly support prospects challenging NCAA and overseas programs",
+      alumniSupportBtn: "Support ➔",
     }
   };
 
@@ -1089,6 +1109,11 @@
     safeSetText('mCombineTitle', t.mCombineTitle); safeSetText('mCombineDesc', t.mCombineDesc);
     safeSetText('combineTitle', t.combineTitle); safeSetText('combineSub', t.combineSub);
     safeSetText('trialsTitle', t.trialsTitle); safeSetText('trialsSub', t.trialsSub);
+
+    safeSetText('alumniSupportHeader', t.alumniSupportHeader);
+    safeSetText('alumniSupportTitle', t.alumniSupportTitle);
+    safeSetText('alumniSupportSub', t.alumniSupportSub);
+    safeSetText('alumniSupportBtn', t.alumniSupportBtn);
 
     /* フィルターボタンの初期化 */
     const fKeys = ['fHeight', 'fJump', 'fMaxReach', 'fStandingReach', 'fReach', 'fSprint', 'fLane'];
