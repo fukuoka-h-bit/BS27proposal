@@ -301,7 +301,7 @@
   <nav>
     <button class="nav-btn active" id="navHome" onclick="switchTab('home', this)">HOME</button>
     <button class="nav-btn" id="navCatalog" onclick="switchTab('catalog', this)">選手名鑑</button>
-    <button class="nav-btn" id="navCombine" onclick="switchTab('combine', this)">本戦コンバイン</button>
+    <button class="nav-btn" id="navCombine" onclick="switchTab('combine', this)">コンバイン</button>
     <button class="nav-btn" id="navSummit" onclick="switchTab('summit', this)">The GAME</button>
     <button class="nav-btn" id="navVote" onclick="switchTab('vote', this)">観客投票</button>
     <button class="nav-btn" id="navAlumni" onclick="switchTab('alumni', this)">卒業生</button>
@@ -341,7 +341,7 @@
       <div class="menu-card" onclick="switchTab('combine', document.querySelectorAll('.nav-btn')[2])">
         <div>
           <div class="menu-icon">⚡</div>
-          <div class="menu-title" id="mCombineTitle">本戦コンバイン</div>
+          <div class="menu-title" id="mCombineTitle">コンバイン</div>
         </div>
         <div class="menu-desc" id="mCombineDesc">選ばれし16名のフィジカルデータ</div>
       </div>
@@ -436,9 +436,9 @@
     <div class="player-grid" id="playerGrid"></div>
   </div>
 
-  <!-- 本戦コンバイン（選ばれし16名専用ページ） -->
+  <!-- コンバイン（選ばれし16名専用ページ） -->
   <div id="combine" class="content-section">
-    <h3 style="font-size: 0.85rem; margin-bottom: 6px; color: var(--gold-accent);" id="combineTitle">■ 本戦サミットコンバイン (選ばれし16名)</h3>
+    <h3 style="font-size: 0.85rem; margin-bottom: 6px; color: var(--gold-accent);" id="combineTitle">■ サミットコンバイン (選ばれし16名)</h3>
     <div style="font-size:0.65rem; color:var(--text-muted); margin-bottom:12px;" id="combineSub">全米スカウトが直接視察するサミット本戦出場者のフィジカルスペック</div>
     
     <div class="filter-scroll">
@@ -846,7 +846,7 @@
 
   const i18n = {
     JA: {
-      navHome: "HOME", navCatalog: "選手名鑑", navCombine: "本戦コンバイン", navSummit: "The GAME", navVote: "観客投票", navAlumni: "卒業生", navNews: "BSニュース",
+      navHome: "HOME", navCatalog: "選手名鑑", navCombine: "コンバイン", navSummit: "The GAME", navVote: "観客投票", navAlumni: "卒業生", navNews: "BSニュース",
       appTitle: "日本最高峰バスケサミット App",
       subText: "世界基準の原石がここに集結する",
       gridSectionHeader: "■ サミット特設コーナー",
@@ -857,8 +857,8 @@
       mMapTitle: "ARENA MAP", mMapDesc: "会場案内図・ブース配置",
       mNewsTitle: "BSニュース", mNewsDesc: "最新情報・メディア報道",
       mAlumniTitle: "卒業生マガジン", mAlumniDesc: "NCAA挑戦追跡レポート",
-      mCombineTitle: "本戦コンバイン", mCombineDesc: "選ばれし16名のフィジカルデータ",
-      combineTitle: "■ 本戦サミットコンバイン (選ばれし16名)",
+      mCombineTitle: "コンバイン", mCombineDesc: "選ばれし16名のフィジカルデータ",
+      combineTitle: "■ サミットコンバイン (選ばれし16名)",
       combineSub: "全米スカウトが直接視察するサミット本戦出場者のフィジカルスペック",
       trialsTitle: "■ 全国予選測定会 TOP100 表一覧",
       trialsSub: "サミット本戦出場を目指し全国で計測された原石データベース",
@@ -916,8 +916,8 @@
       mMapTitle: "ARENA MAP", mMapDesc: "Arena Guide & Layout",
       mNewsTitle: "BS NEWS", mNewsDesc: "Latest News & Media",
       mAlumniTitle: "ALUMNI MAGAZINE", mAlumniDesc: "NCAA Journey Tracking",
-      mCombineTitle: "MAIN COMBINE", mCombineDesc: "Chosen 16 Prospects Data",
-      combineTitle: "■ MAIN SUMMIT COMBINE (CHOSEN 16)",
+      mCombineTitle: "COMBINE", mCombineDesc: "Chosen 16 Prospects Data",
+      combineTitle: "■ SUMMIT COMBINE (CHOSEN 16)",
       combineSub: "Physical Specs of Main Summit Participants Tracked by NCAA Scouts",
       trialsTitle: "■ NATIONAL COMBINE TRIALS TOP 100",
       trialsSub: "Full Database of 100 Prospects Tracked in Regional Qualifiers",
