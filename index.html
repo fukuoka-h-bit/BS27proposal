@@ -377,6 +377,23 @@
     updateVoteButtonsUI();
   }
 
+/* Google翻訳による操作ブロックとレイアウト崩れの強制解除 */
+.goog-te-banner-frame, 
+.skiptranslate, 
+#google_translate_element {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+/* 全ボタン・カードのタップ操作を最優先に確保 */
+.app-container, button, .menu-card, .banner-card, .player-card, .combine-card {
+  pointer-events: auto !important;
+  touch-action: manipulation;
+}
+
 </style>
 </head>
 <body>
@@ -1153,12 +1170,17 @@
 
 function setLanguage(lang) {
     currentLang = lang;
-    document.getElementById('btnJa').classList.toggle('active', lang === 'JA');
-    document.getElementById('btnEn').classList.toggle('active', lang === 'EN');
 
+    // ボタンのactive表示切り替え
+    const btnJa = document.getElementById('btnJa');
+    const btnEn = document.getElementById('btnEn');
+    if (btnJa) btnJa.classList.toggle('active', lang === 'JA');
+    if (btnEn) btnEn.classList.toggle('active', lang === 'EN');
+
+    // 「JA」が押された場合は、元の日本語文章で完全に初期化・復元する
     const t = i18n[lang];
+    if (!t) return;
 
-    // 安全にテキストをセットする補助関数
     const safeSetText = (id, text) => {
       const el = document.getElementById(id);
       if (el && text !== undefined) {
@@ -1166,7 +1188,7 @@ function setLanguage(lang) {
       }
     };
 
-    /* ナビゲーションの切り替え */
+    /* ナビゲーションの初期化 */
     safeSetText('navHome', t.navHome);
     safeSetText('navCatalog', t.navCatalog);
     safeSetText('navCombine', t.navCombine);
@@ -1175,30 +1197,22 @@ function setLanguage(lang) {
     safeSetText('navAlumni', t.navAlumni);
     safeSetText('navNews', t.navNews);
 
+    /* ヘッダー・ヒーロー・バナーの初期化 */
     safeSetText('appHeaderTitle', t.appTitle);
     safeSetText('heroSubText', t.subText);
     safeSetText('gridSectionHeader', t.gridSectionHeader);
     safeSetText('infoSectionHeader', t.infoSectionHeader);
-    safeSetText('m1Title', t.m1Title);
-    safeSetText('m1Desc', t.m1Desc);
-    safeSetText('m2Title', t.m2Title);
-    safeSetText('m2Desc', t.m2Desc);
-    safeSetText('m3Title', t.m3Title);
-    safeSetText('m3Desc', t.m3Desc);
-    safeSetText('mMapTitle', t.mMapTitle);
-    safeSetText('mMapDesc', t.mMapDesc);
-    safeSetText('mNewsTitle', t.mNewsTitle);
-    safeSetText('mNewsDesc', t.mNewsDesc);
-    safeSetText('mAlumniTitle', t.mAlumniTitle);
-    safeSetText('mAlumniDesc', t.mAlumniDesc);
-    safeSetText('mCombineTitle', t.mCombineTitle);
-    safeSetText('mCombineDesc', t.mCombineDesc);
-    safeSetText('combineTitle', t.combineTitle);
-    safeSetText('combineSub', t.combineSub);
-    safeSetText('trialsTitle', t.trialsTitle);
-    safeSetText('trialsSub', t.trialsSub);
+    safeSetText('m1Title', t.m1Title); safeSetText('m1Desc', t.m1Desc);
+    safeSetText('m2Title', t.m2Title); safeSetText('m2Desc', t.m2Desc);
+    safeSetText('m3Title', t.m3Title); safeSetText('m3Desc', t.m3Desc);
+    safeSetText('mMapTitle', t.mMapTitle); safeSetText('mMapDesc', t.mMapDesc);
+    safeSetText('mNewsTitle', t.mNewsTitle); safeSetText('mNewsDesc', t.mNewsDesc);
+    safeSetText('mAlumniTitle', t.mAlumniTitle); safeSetText('mAlumniDesc', t.mAlumniDesc);
+    safeSetText('mCombineTitle', t.mCombineTitle); safeSetText('mCombineDesc', t.mCombineDesc);
+    safeSetText('combineTitle', t.combineTitle); safeSetText('combineSub', t.combineSub);
+    safeSetText('trialsTitle', t.trialsTitle); safeSetText('trialsSub', t.trialsSub);
 
-    /* フィルターボタンテキスト切替 */
+    /* フィルターボタンの初期化 */
     const fKeys = ['fHeight', 'fJump', 'fMaxReach', 'fStandingReach', 'fReach', 'fSprint', 'fLane'];
     ['fBtnHeight', 'fBtnJump', 'fBtnMaxReach', 'fBtnStandingReach', 'fBtnReach', 'fBtnSprint', 'fBtnLane'].forEach((id, i) => {
       safeSetText(id, t[fKeys[i]]);
@@ -1207,6 +1221,7 @@ function setLanguage(lang) {
       safeSetText(id, t[fKeys[i]]);
     });
 
+    /* 各種テキスト・カードの初期化 */
     safeSetText('clipHeader', t.clipHeader);
     safeSetText('pickupHeader', t.pickupHeader);
     safeSetText('top100Header', t.top100Header);
@@ -1248,9 +1263,9 @@ function setLanguage(lang) {
     const mapDescList = document.getElementById('mapDescList');
     if (mapDescList) {
       mapDescList.innerHTML = `
-        <div>${t.mapDesc1}</div>
-        <div>${t.mapDesc2}</div>
-        <div>${t.mapDesc3}</div>
+        <div>${t.mapDesc1 || ''}</div>
+        <div>${t.mapDesc2 || ''}</div>
+        <div>${t.mapDesc3 || ''}</div>
       `;
     }
 
@@ -1265,6 +1280,7 @@ function setLanguage(lang) {
       safeSetText('pickupCatch', isJa ? currentRandomPlayer.catchJa : currentRandomPlayer.catchEn);
     }
 
+    // 動的リストの再描画（元データで上書きレンダリング）
     renderPlayers();
     renderBoxScore();
     renderCombineRanking(currentCombineMetric);
