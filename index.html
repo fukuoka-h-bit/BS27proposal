@@ -1032,107 +1032,118 @@
     container.appendChild(fragment);
   }
 
-  function setLanguage(lang) {
+function setLanguage(lang) {
     currentLang = lang;
     document.getElementById('btnJa').classList.toggle('active', lang === 'JA');
     document.getElementById('btnEn').classList.toggle('active', lang === 'EN');
 
     const t = i18n[lang];
 
-    /* ナビゲーションの切り替え */
-    document.getElementById('navHome').innerText = t.navHome;
-    document.getElementById('navCatalog').innerText = t.navCatalog;
-    document.getElementById('navCombine').innerText = t.navCombine;
-    document.getElementById('navSummit').innerText = t.navSummit;
-    document.getElementById('navVote').innerText = t.navVote;
-    document.getElementById('navAlumni').innerText = t.navAlumni;
-    document.getElementById('navNews').innerText = t.navNews;
+    // 安全にテキストをセットする補助関数
+    const safeSetText = (id, text) => {
+      const el = document.getElementById(id);
+      if (el && text !== undefined) {
+        el.innerText = text;
+      }
+    };
 
-    document.getElementById('appHeaderTitle').innerText = t.appTitle;
-    document.getElementById('heroSubText').innerText = t.subText;
-    document.getElementById('gridSectionHeader').innerText = t.gridSectionHeader;
-    document.getElementById('infoSectionHeader').innerText = t.infoSectionHeader;
-    document.getElementById('m1Title').innerText = t.m1Title;
-    document.getElementById('m1Desc').innerText = t.m1Desc;
-    document.getElementById('m2Title').innerText = t.m2Title;
-    document.getElementById('m2Desc').innerText = t.m2Desc;
-    document.getElementById('m3Title').innerText = t.m3Title;
-    document.getElementById('m3Desc').innerText = t.m3Desc;
-    document.getElementById('mMapTitle').innerText = t.mMapTitle;
-    document.getElementById('mMapDesc').innerText = t.mMapDesc;
-    document.getElementById('mNewsTitle').innerText = t.mNewsTitle;
-    document.getElementById('mNewsDesc').innerText = t.mNewsDesc;
-    document.getElementById('mAlumniTitle').innerText = t.mAlumniTitle;
-    document.getElementById('mAlumniDesc').innerText = t.mAlumniDesc;
-    document.getElementById('mCombineTitle').innerText = t.mCombineTitle;
-    document.getElementById('mCombineDesc').innerText = t.mCombineDesc;
-    document.getElementById('combineTitle').innerText = t.combineTitle;
-    document.getElementById('combineSub').innerText = t.combineSub;
-    document.getElementById('trialsTitle').innerText = t.trialsTitle;
-    document.getElementById('trialsSub').innerText = t.trialsSub;
-    
+    /* ナビゲーションの切り替え */
+    safeSetText('navHome', t.navHome);
+    safeSetText('navCatalog', t.navCatalog);
+    safeSetText('navCombine', t.navCombine);
+    safeSetText('navSummit', t.navSummit);
+    safeSetText('navVote', t.navVote);
+    safeSetText('navAlumni', t.navAlumni);
+    safeSetText('navNews', t.navNews);
+
+    safeSetText('appHeaderTitle', t.appTitle);
+    safeSetText('heroSubText', t.subText);
+    safeSetText('gridSectionHeader', t.gridSectionHeader);
+    safeSetText('infoSectionHeader', t.infoSectionHeader);
+    safeSetText('m1Title', t.m1Title);
+    safeSetText('m1Desc', t.m1Desc);
+    safeSetText('m2Title', t.m2Title);
+    safeSetText('m2Desc', t.m2Desc);
+    safeSetText('m3Title', t.m3Title);
+    safeSetText('m3Desc', t.m3Desc);
+    safeSetText('mMapTitle', t.mMapTitle);
+    safeSetText('mMapDesc', t.mMapDesc);
+    safeSetText('mNewsTitle', t.mNewsTitle);
+    safeSetText('mNewsDesc', t.mNewsDesc);
+    safeSetText('mAlumniTitle', t.mAlumniTitle);
+    safeSetText('mAlumniDesc', t.mAlumniDesc);
+    safeSetText('mCombineTitle', t.mCombineTitle);
+    safeSetText('mCombineDesc', t.mCombineDesc);
+    safeSetText('combineTitle', t.combineTitle);
+    safeSetText('combineSub', t.combineSub);
+    safeSetText('trialsTitle', t.trialsTitle);
+    safeSetText('trialsSub', t.trialsSub);
 
     /* フィルターボタンテキスト切替 */
     const fKeys = ['fHeight', 'fJump', 'fMaxReach', 'fStandingReach', 'fReach', 'fSprint', 'fLane'];
     ['fBtnHeight', 'fBtnJump', 'fBtnMaxReach', 'fBtnStandingReach', 'fBtnReach', 'fBtnSprint', 'fBtnLane'].forEach((id, i) => {
-      const b = document.getElementById(id); if (b) b.innerText = t[fKeys[i]];
+      safeSetText(id, t[fKeys[i]]);
     });
     ['tfBtnHeight', 'tfBtnJump', 'tfBtnMaxReach', 'tfBtnStandingReach', 'tfBtnReach', 'tfBtnSprint', 'tfBtnLane'].forEach((id, i) => {
-      const b = document.getElementById(id); if (b) b.innerText = t[fKeys[i]];
+      safeSetText(id, t[fKeys[i]]);
     });
 
-    document.getElementById('clipHeader').innerText = t.clipHeader;
-    document.getElementById('pickupHeader').innerText = t.pickupHeader;
-    document.getElementById('top100Header').innerText = t.top100Header;
-    document.getElementById('homeTop100Title').innerText = t.homeTop100Title;
-    document.getElementById('homeTop100Sub').innerText = t.homeTop100Sub;
-    document.getElementById('homeTop100Btn').innerText = t.homeTop100Btn;
-    document.getElementById('mapHeader').innerText = t.mapHeader;
-    document.getElementById('homeMapTitle').innerText = t.homeMapTitle;
-    document.getElementById('homeMapSub').innerText = t.homeMapSub;
-    document.getElementById('homeMapBtn').innerText = t.homeMapBtn;
-    document.getElementById('goodsHeader').innerText = t.goodsHeader;
-    document.getElementById('goodsTitle').innerText = t.goodsTitle;
-    document.getElementById('goodsSub').innerText = t.goodsSub;
-    document.getElementById('goodsBtn').innerText = t.goodsBtn;
-    document.getElementById('boxHeader').innerText = t.boxHeader;
-    document.getElementById('thPlayer').innerText = t.thPlayer;
-    document.getElementById('voteHeader').innerText = t.voteHeader;
+    safeSetText('clipHeader', t.clipHeader);
+    safeSetText('pickupHeader', t.pickupHeader);
+    safeSetText('top100Header', t.top100Header);
+    safeSetText('homeTop100Title', t.homeTop100Title);
+    safeSetText('homeTop100Sub', t.homeTop100Sub);
+    safeSetText('homeTop100Btn', t.homeTop100Btn);
+    safeSetText('mapHeader', t.mapHeader);
+    safeSetText('homeMapTitle', t.homeMapTitle);
+    safeSetText('homeMapSub', t.homeMapSub);
+    safeSetText('homeMapBtn', t.homeMapBtn);
+    safeSetText('goodsHeader', t.goodsHeader);
+    safeSetText('goodsTitle', t.goodsTitle);
+    safeSetText('goodsSub', t.goodsSub);
+    safeSetText('goodsBtn', t.goodsBtn);
+    safeSetText('boxHeader', t.boxHeader);
+    safeSetText('thPlayer', t.thPlayer);
+    safeSetText('voteHeader', t.voteHeader);
 
-    document.getElementById('v1Title').innerText = t.v1Title; document.getElementById('v1Desc').innerText = t.v1Desc;
-    document.getElementById('v2Title').innerText = t.v2Title; document.getElementById('v2Desc').innerText = t.v2Desc;
-    document.getElementById('v3Title').innerText = t.v3Title; document.getElementById('v3Desc').innerText = t.v3Desc;
-    document.getElementById('v4Title').innerText = t.v4Title; document.getElementById('v4Desc').innerText = t.v4Desc;
-    document.getElementById('v5Title').innerText = t.v5Title; document.getElementById('v5Desc').innerText = t.v5Desc;
+    safeSetText('v1Title', t.v1Title); safeSetText('v1Desc', t.v1Desc);
+    safeSetText('v2Title', t.v2Title); safeSetText('v2Desc', t.v2Desc);
+    safeSetText('v3Title', t.v3Title); safeSetText('v3Desc', t.v3Desc);
+    safeSetText('v4Title', t.v4Title); safeSetText('v4Desc', t.v4Desc);
+    safeSetText('v5Title', t.v5Title); safeSetText('v5Desc', t.v5Desc);
 
-    document.getElementById('lblBirth').innerText = t.lblBirth;
-    document.getElementById('lblHeight').innerText = t.lblHeight;
-    document.getElementById('lblReach').innerText = t.lblReach;
-    document.getElementById('lblJump').innerText = t.lblJump;
-    document.getElementById('lblSprint').innerText = t.lblSprint;
-    document.getElementById('lblLane').innerText = t.lblLane;
-    document.getElementById('lblRecommendHeader').innerText = t.lblRecommendHeader;
-    document.getElementById('lblAlumniEvalHeader').innerText = t.lblAlumniEvalHeader;
-    document.getElementById('lblVideoHeader').innerText = t.lblVideoHeader;
-    document.getElementById('glowBtnText').innerText = t.glowBtnText;
-    document.getElementById('glowCloseText').innerText = t.glowCloseText;
+    safeSetText('lblBirth', t.lblBirth);
+    safeSetText('lblHeight', t.lblHeight);
+    safeSetText('lblReach', t.lblReach);
+    safeSetText('lblJump', t.lblJump);
+    safeSetText('lblSprint', t.lblSprint);
+    safeSetText('lblLane', t.lblLane);
+    safeSetText('lblRecommendHeader', t.lblRecommendHeader);
+    safeSetText('lblAlumniEvalHeader', t.lblAlumniEvalHeader);
+    safeSetText('lblVideoHeader', t.lblVideoHeader);
+    safeSetText('glowBtnText', t.glowBtnText);
+    safeSetText('glowCloseText', t.glowCloseText);
 
-    document.getElementById('mapModalTitle').innerText = t.mapModalTitle;
-    document.getElementById('mapDescList').innerHTML = `
-      <div>${t.mapDesc1}</div>
-      <div>${t.mapDesc2}</div>
-      <div>${t.mapDesc3}</div>
-    `;
+    safeSetText('mapModalTitle', t.mapModalTitle);
+    
+    const mapDescList = document.getElementById('mapDescList');
+    if (mapDescList) {
+      mapDescList.innerHTML = `
+        <div>${t.mapDesc1}</div>
+        <div>${t.mapDesc2}</div>
+        <div>${t.mapDesc3}</div>
+      `;
+    }
 
-    document.getElementById('vid1').innerText = t.vid1;
-    document.getElementById('vid2').innerText = t.vid2;
-    document.getElementById('vid3').innerText = t.vid3;
-    document.getElementById('vid4').innerText = t.vid4;
+    safeSetText('vid1', t.vid1);
+    safeSetText('vid2', t.vid2);
+    safeSetText('vid3', t.vid3);
+    safeSetText('vid4', t.vid4);
 
     if (currentRandomPlayer) {
       const isJa = currentLang === 'JA';
-      document.getElementById('pickupName').innerText = isJa ? `${currentRandomPlayer.name} (${currentRandomPlayer.pos})` : `${currentRandomPlayer.nameEn} (${currentRandomPlayer.posEn})`;
-      document.getElementById('pickupCatch').innerText = isJa ? currentRandomPlayer.catchJa : currentRandomPlayer.catchEn;
+      safeSetText('pickupName', isJa ? `${currentRandomPlayer.name} (${currentRandomPlayer.pos})` : `${currentRandomPlayer.nameEn} (${currentRandomPlayer.posEn})`);
+      safeSetText('pickupCatch', isJa ? currentRandomPlayer.catchJa : currentRandomPlayer.catchEn);
     }
 
     renderPlayers();
